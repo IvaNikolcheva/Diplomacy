@@ -17,13 +17,13 @@ namespace NewsSite.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin,Member")]
         public IActionResult Index()
         {
             var roles = _roleManager.Roles;
             return View(roles);
         }
-
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public IActionResult Create()
         {
