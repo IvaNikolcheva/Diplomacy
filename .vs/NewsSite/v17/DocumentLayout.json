@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\views\\roles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\roles\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -13,10 +25,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\rolescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\iva 12a\\newssite\\models\\account\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -66,7 +74,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,12 +110,38 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADAAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T06:22:25.957Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-31T06:21:06.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "Views\\_ViewImports.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\_ViewImports.cshtml*",
-              "RelativeToolTip": "Views\\_ViewImports.cshtml*",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "Views\\_ViewImports.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-31T06:15:48.571Z",
@@ -115,12 +149,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Roles\\Index.cshtml",
               "RelativeDocumentMoniker": "Views\\Roles\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Roles\\Index.cshtml*",
-              "RelativeToolTip": "Views\\Roles\\Index.cshtml*",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Views\\Roles\\Index.cshtml",
+              "RelativeToolTip": "Views\\Roles\\Index.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-03-31T06:14:41.582Z",
@@ -128,7 +162,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "RolesController.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Controllers\\RolesController.cs",
               "RelativeDocumentMoniker": "Controllers\\RolesController.cs",
@@ -141,7 +175,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "RegisterViewModel.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Models\\Account\\RegisterViewModel.cs",
               "RelativeDocumentMoniker": "Models\\Account\\RegisterViewModel.cs",
@@ -154,7 +188,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "LoginViewModel.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Models\\Account\\LoginViewModel.cs",
               "RelativeDocumentMoniker": "Models\\Account\\LoginViewModel.cs",
@@ -167,20 +201,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Controllers\\AccountController.cs",
               "RelativeToolTip": "Controllers\\AccountController.cs",
-              "ViewState": "AgIAADMAAAAAAAAAAAAowDcAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAkwDcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-31T06:06:30.472Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "20250331055433_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Data\\Migrations\\20250331055433_InitialCreate.cs",
               "RelativeDocumentMoniker": "Data\\Migrations\\20250331055433_InitialCreate.cs",
@@ -193,7 +227,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "20250331054903_InitialCreate.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Data\\Migrations\\20250331054903_InitialCreate.cs",
               "RelativeDocumentMoniker": "Data\\Migrations\\20250331054903_InitialCreate.cs",
@@ -206,7 +240,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
@@ -219,7 +253,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
@@ -232,7 +266,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -245,7 +279,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Models\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
@@ -258,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "Article.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\Models\\Article.cs",
               "RelativeDocumentMoniker": "Models\\Article.cs",
@@ -271,7 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\Iva 12a\\NewsSite\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
