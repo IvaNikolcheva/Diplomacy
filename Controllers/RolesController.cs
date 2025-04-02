@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using NewsSite.Models;
+using NewsSite.Models.Role;
 
 namespace NewsSite.Controllers
 {
@@ -17,7 +20,7 @@ namespace NewsSite.Controllers
             _userManager = userManager;
         }
 
-        [Authorize(Roles = "Admin,Member")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var roles = _roleManager.Roles;
@@ -48,15 +51,31 @@ namespace NewsSite.Controllers
             return View();
         }
 
-        [HttpGet]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(IdentityRole model)
+        [HttpGet]
+        public IActionResult Edit(IdentityRole model)
         {
             if (ModelState.IsValid)
             {
-
+                var roleExist = _roleManager.RoleExistsAsync(model.Name);
+                if (!roleExist)
+                {
+                    ModelState.AddModelError("", "The role doesn't exist");
+                }
+                
             }
-            return RedirectToAction("Index");
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Edit(IdentityRole model)
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        public IActionResult Delete()
+        {
+            return View();
         }
     }
 }
