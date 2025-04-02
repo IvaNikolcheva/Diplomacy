@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Azure.Messaging;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NewsSite.Models;
@@ -29,7 +30,7 @@ namespace NewsSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
 
                 if (result.Succeeded)
                 {
@@ -57,7 +58,8 @@ namespace NewsSite.Controllers
                     FirstName = model.FirstName,
                     FatherName = model.FatherName,
                     FamilyName = model.FamilyName,
-                    UserName=model.Username,
+                    UserName=model.Email,
+                    CustomUsername=model.CustomUsername,
                     EmailConfirmed=true
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);

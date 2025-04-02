@@ -3,6 +3,7 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <ul class="navbar-nav">
+    
     @if (SignInManager.IsSignedIn(User))
     {
         <form class="form-inline" asp-controller="Account" asp-action="Logout">

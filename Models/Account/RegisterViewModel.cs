@@ -13,7 +13,7 @@ namespace NewsSite.Models.Account
         [Required]
         [Display(Name = "Family Name")]
         public string FamilyName { get; set; }
-        public string Username { get; set; }
+        public string CustomUsername { get; set; }
         [Required]
         [EmailAddress]
         public string Email { get; set; }

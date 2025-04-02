@@ -40,12 +40,13 @@ using (var scope = app.Services.CreateScope())
     string firstName = "Ad";
     string fatherName = "M";
     string lastName = "In";
+    string customusername = "Admin";
 
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
     if (adminUser == null)
     {
-        adminUser = new ApplicationUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true, FirstName = firstName, FatherName = fatherName, FamilyName = lastName };
+        adminUser = new ApplicationUser { UserName = adminEmail, Email = adminEmail, EmailConfirmed = true, FirstName = firstName, FatherName = fatherName, FamilyName = lastName, CustomUsername=customusername };
 
         var result = await userManager.CreateAsync(adminUser, adminPassword);
 
