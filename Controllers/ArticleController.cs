@@ -3,27 +3,27 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace NewsSite.Controllers
 {
-    public class ArticlesController : Controller
+    public class ArticleController : Controller
     {
-        // GET: ArticlesController
+        // GET: ArticleController
         public ActionResult Index()
         {
             return View();
         }
 
-        // GET: ArticlesController/Details/5
+        // GET: ArticleController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-        // GET: ArticlesController/Create
+        // GET: ArticleController/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: ArticlesController/Create
+        // POST: ArticleController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -38,13 +38,13 @@ namespace NewsSite.Controllers
             }
         }
 
-        // GET: ArticlesController/Edit/5
+        // GET: ArticleController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: ArticlesController/Edit/5
+        // POST: ArticleController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -59,13 +59,13 @@ namespace NewsSite.Controllers
             }
         }
 
-        // GET: ArticlesController/Delete/5
+        // GET: ArticleController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: ArticlesController/Delete/5
+        // POST: ArticleController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

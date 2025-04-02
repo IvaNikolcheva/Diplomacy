@@ -58,9 +58,9 @@ namespace NewsSite.Controllers
                     FirstName = model.FirstName,
                     FatherName = model.FatherName,
                     FamilyName = model.FamilyName,
-                    UserName=model.Email,
-                    CustomUsername=model.CustomUsername,
-                    EmailConfirmed=true
+                    UserName = model.Email,
+                    CustomUsername = model.CustomUsername,
+                    EmailConfirmed = true
                 };
                 var result = await _userManager.CreateAsync(user, model.Password);
 

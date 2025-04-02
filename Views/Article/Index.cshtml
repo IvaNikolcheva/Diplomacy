@@ -1,5 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model IEnumerable<NewsSite.Models.Article>
+
+<h2>Новини</h2>
+
+<a asp-action="Create" class="btn btn-primary">Добави новина</a>
+<div>
+    @foreach (var article in Model)
+    {
+        <tr>
+            <td>@article.Image</td>
+            <td>@article.Title</td>
+            <td>@article.Content</td>
+            <td>
+                @if (article.Image != null)
+                {
+                    <img src="data:image;base64,@(Convert.ToBase64String(article.Image))" width="100" />
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@article.Id">Редактирай</a> |
+                <form asp-action="Delete" asp-route-id="@article.Id" method="post">
+                    <button type="submit" class="btn btn-danger">Изтрий</button>
+                </form>
+            </td>
+        </tr>
+    }
+</div>

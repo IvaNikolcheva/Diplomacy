@@ -26,7 +26,7 @@ namespace NewsSite.Controllers
             var roles = _roleManager.Roles;
             return View(roles);
         }
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult Create()
         {
@@ -55,19 +55,10 @@ namespace NewsSite.Controllers
         [HttpGet]
         public IActionResult Edit(IdentityRole model)
         {
-            if (ModelState.IsValid)
-            {
-                var roleExist = _roleManager.RoleExistsAsync(model.Name);
-                if (!roleExist)
-                {
-                    ModelState.AddModelError("", "The role doesn't exist");
-                }
-                
-            }
             return View();
         }
         [HttpPost]
-        public async Task<ActionResult> Edit(IdentityRole model)
+        public async Task<ActionResult> Edit()
         {
             return View();
         }
