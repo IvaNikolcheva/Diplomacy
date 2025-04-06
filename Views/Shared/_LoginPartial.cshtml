@@ -6,8 +6,9 @@
     
     @if (SignInManager.IsSignedIn(User))
     {
+        var currentUser = await UserManager.GetUserAsync(User);
         <form class="form-inline" asp-controller="Account" asp-action="Logout">
-            <button type="submit" class="nav-link btn btn-link text-dark">Logout of @User.Identity.Name</button>
+            <button type="submit" class="nav-link btn btn-link text-dark">Logout of @currentUser.CustomUsername</button>
         </form>
     }
     else

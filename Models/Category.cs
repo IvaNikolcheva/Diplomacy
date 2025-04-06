@@ -7,6 +7,6 @@ namespace NewsSite.Models
         [Key]
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
-        public ICollection<Article> Articles { get; set; }
+        public ICollection<ArticleCategory> ArticleCategories { get; set; }
     }
 }

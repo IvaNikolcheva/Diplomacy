@@ -1,8 +1,12 @@
 ﻿@model IEnumerable<NewsSite.Models.Article>
 
 <h2>Новини</h2>
-
-<a asp-action="Create" class="btn btn-primary">Добави новина</a>
+@if (User.Identity.IsAuthenticated){
+    if (User.IsInRole("Manager"))
+    {
+        <a asp-action="Create" class="btn btn-primary">Добави новина</a>
+    }
+}
 <div>
     @foreach (var article in Model)
     {
