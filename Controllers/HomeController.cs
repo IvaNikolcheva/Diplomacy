@@ -11,18 +11,48 @@ namespace NewsSite.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ApplicationDbContext _context;
-        public HomeController(ApplicationDbContext context)
+        public HomeController(ApplicationDbContext context,ILogger<HomeController> logger)
         {
             _context = context;
-        }
-        public HomeController(ILogger<HomeController> logger)
-        {
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(string chosenOne)
         {
-            return View();
+            var articles = _context.Articles.ToList();
+            List<Article> chosenOnes = new List<Article>();
+
+            if (chosenOne == null) 
+            {
+                return View(articles);
+            }
+            if (chosenOne != null)
+            {
+                foreach (var article in articles)
+                {
+                    var articleCategories = _context.ArticleCategories.Where(n => n.ArticleId == article.ArticleId).ToList();
+                    foreach (var articleCategory in articleCategories)
+                    {
+                        switch (chosenOne)
+                        {
+                            case "България":
+                            {
+                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
+                                    {
+                                        chosenOnes.Add(article);
+                                    }
+                                break;
+                            }
+                        }
+                    }
+                    
+                }
+
+                return View(chosenOnes);
+            }
+
+
+            return View(articles);
         }
 
         public IActionResult Privacy()
@@ -31,7 +61,7 @@ namespace NewsSite.Controllers
         }
         public IActionResult Bulgaria()
         {
-            var articles = _context.Articles.Include(b => b.Categories).ToList();
+            var articles = _context.Articles;
             return View(articles);
         }
         public IActionResult World()

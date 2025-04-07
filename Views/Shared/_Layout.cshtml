@@ -28,8 +28,8 @@
                         <li class="dropdown nav-item">
                             <span class="align-content-center">Категории</span>
                             <div class="dropdown-content">
-                                <button class="btn-light btn" asp-area="" asp-controller="Home" asp-action="Bulgaria">България</button>
-                                <button class="btn-light" asp-controller="Home" asp-action="World">Светът</button>
+                                <button class="btn-light btn" asp-area="" asp-controller="Home" asp-action="Index" name="chosenOne" value="България">България</button>
+                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="Светът">Светът</button>
                             </div>
                         </li>
                             @if (User.IsInRole("Admin") || User.IsInRole("Worker"))
