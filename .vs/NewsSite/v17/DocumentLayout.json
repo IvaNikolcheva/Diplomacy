@@ -3,48 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\article\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\article\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\articles\\createarticleviwmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\articles\\createarticleviwmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\controllers\\articlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\articlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\article\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\article\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\article.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:data\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\controllers\\articlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\articlecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\articles\\createarticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\articles\\createarticleviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\article\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -53,10 +57,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|solutionrelative:models\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{F7780EEE-B3E4-4F18-8429-21A162F4628F}|NewsSite.csproj|c:\\users\\user\\source\\repos\\ivanikolcheva\\diplomacy\\models\\articlecategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -110,26 +110,78 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Article\\Create.cshtml",
               "RelativeDocumentMoniker": "Views\\Article\\Create.cshtml",
               "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Article\\Create.cshtml",
               "RelativeToolTip": "Views\\Article\\Create.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA0AAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-04-07T06:16:13.601Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T05:11:56.914Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T05:30:38.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "CreateArticleViwModel.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Articles\\CreateArticleViwModel.cs",
-              "RelativeDocumentMoniker": "Models\\Articles\\CreateArticleViwModel.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Articles\\CreateArticleViwModel.cs",
-              "RelativeToolTip": "Models\\Articles\\CreateArticleViwModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAqAAAAAAAAAA==",
+              "Title": "Article.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Article.cs",
+              "RelativeDocumentMoniker": "Models\\Article.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Article.cs",
+              "RelativeToolTip": "Models\\Article.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAywBAAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-06T16:22:24.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ArticleController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\ArticleController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ArticleController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\ArticleController.cs",
+              "RelativeToolTip": "Controllers\\ArticleController.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwBUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T05:25:01.944Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateArticleViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Source\\Repos\\IvaNikolcheva\\Diplomacy\\Models\\Articles\\CreateArticleViewModel.cs",
+              "RelativeDocumentMoniker": "Models\\Articles\\CreateArticleViewModel.cs",
+              "ToolTip": "C:\\Users\\User\\Source\\Repos\\IvaNikolcheva\\Diplomacy\\Models\\Articles\\CreateArticleViewModel.cs",
+              "RelativeToolTip": "Models\\Articles\\CreateArticleViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-07T06:06:31.277Z",
               "EditorCaption": ""
@@ -137,110 +189,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T06:02:25.008Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Home\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Home\\Index.cshtml",
-              "RelativeToolTip": "Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T05:12:38.137Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Article\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\Article\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Article\\Index.cshtml",
-              "RelativeToolTip": "Views\\Article\\Index.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T05:12:22.425Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "Controllers\\HomeController.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAawCUAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:11:56.914Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAB4AAACTAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-04-07T05:30:38.497Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Article.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Article.cs",
-              "RelativeDocumentMoniker": "Models\\Article.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Article.cs",
-              "RelativeToolTip": "Models\\Article.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAzwBAAAABLAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T16:22:24.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "ApplicationDbContext.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Data\\ApplicationDbContext.cs",
               "RelativeDocumentMoniker": "Data\\ApplicationDbContext.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Data\\ApplicationDbContext.cs",
               "RelativeToolTip": "Data\\ApplicationDbContext.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAxwBwAAAAzAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwBwAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-06T16:25:43.075Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "ArticleController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\ArticleController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ArticleController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\ArticleController.cs",
-              "RelativeToolTip": "Controllers\\ArticleController.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\ApplicationUser.cs",
+              "RelativeToolTip": "Models\\ApplicationUser.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-07T05:25:01.944Z",
+              "WhenOpened": "2025-04-06T18:14:28.96Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
@@ -253,7 +227,44 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Article\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Article\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Article\\Index.cshtml",
+              "RelativeToolTip": "Views\\Article\\Index.cshtml",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAA4AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T05:12:22.425Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-07T05:12:38.137Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-07T06:02:25.008Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
@@ -261,24 +272,11 @@
               "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-07T05:15:54.793Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-07T05:15:54.793Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "ApplicationUser.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\ApplicationUser.cs",
-              "RelativeDocumentMoniker": "Models\\ApplicationUser.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\ApplicationUser.cs",
-              "RelativeToolTip": "Models\\ApplicationUser.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T18:14:28.96Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "Category.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\IvaNikolcheva\\Diplomacy\\Models\\Category.cs",
               "RelativeDocumentMoniker": "Models\\Category.cs",
@@ -286,8 +284,7 @@
               "RelativeToolTip": "Models\\Category.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABLAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-06T16:22:53.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-06T16:22:53.934Z"
             },
             {
               "$type": "Document",

@@ -43,11 +43,22 @@ namespace NewsSite.Controllers
                                     }
                                 break;
                             }
+                            case "Светът":
+                                {
+                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
+                                    {
+                                        chosenOnes.Add(article);
+                                    }
+                                }
+                                break;
+                            default: 
+                                {
+                                    return View(articles); 
+                                }
                         }
                     }
                     
                 }
-
                 return View(chosenOnes);
             }
 
@@ -56,15 +67,6 @@ namespace NewsSite.Controllers
         }
 
         public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult Bulgaria()
-        {
-            var articles = _context.Articles;
-            return View(articles);
-        }
-        public IActionResult World()
         {
             return View();
         }

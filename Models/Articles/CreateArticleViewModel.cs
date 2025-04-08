@@ -2,7 +2,7 @@
 
 namespace NewsSite.Models.Articles
 {
-    public class CreateArticleViwModel
+    public class CreateArticleViewModel
     {
         public string Title { get; set; }
         [Display(Name = "Upload Image")]
