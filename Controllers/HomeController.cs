@@ -16,7 +16,24 @@ namespace NewsSite.Controllers
             _context = context;
             _logger = logger;
         }
-
+        [HttpGet]
+        public IActionResult ChangeThemeRf()
+        {
+            var theme = Request.Cookies["UserPreference"] ?? "light";
+            ViewBag.Theme = theme;
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult ChangeTheme(string theme)
+        {
+            Response.Cookies.Append("UserPreference", theme, new CookieOptions
+            {
+                Expires = DateTime.UtcNow.AddYears(1),
+                HttpOnly = true,
+                IsEssential = true
+            });
+            return RedirectToAction("ChangeThemeRf");
+        }
         public IActionResult Index(string chosenOne)
         {
             var articles = _context.Articles.ToList();
@@ -35,7 +52,7 @@ namespace NewsSite.Controllers
                     {
                         switch (chosenOne)
                         {
-                            case "България":
+                            case "Bulgaria":
                             {
                                     if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
                                     {
@@ -43,7 +60,7 @@ namespace NewsSite.Controllers
                                     }
                                 break;
                             }
-                            case "Светът":
+                            case "World":
                                 {
                                     if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
                                     {
@@ -51,9 +68,33 @@ namespace NewsSite.Controllers
                                     }
                                 }
                                 break;
-                            default: 
+                            case "Politics":
+                                    {
+                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
+                                    {
+                                        chosenOnes.Add(article);
+                                    }
+                                }
+                                break;
+                            case "Economy":
                                 {
-                                    return View(articles); 
+                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
+                                    {
+                                        chosenOnes.Add(article);
+                                    }
+                                }
+                                break;
+                            case "Sports":
+                                {
+                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
+                                    {
+                                        chosenOnes.Add(article);
+                                    }
+                                }
+                                break;
+                            default:
+                                {
+                                    return View(articles);
                                 }
                         }
                     }

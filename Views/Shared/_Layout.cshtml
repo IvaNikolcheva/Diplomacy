@@ -8,7 +8,11 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NewsSite.styles.css" asp-append-version="true" />
 </head>
-<body>
+@{
+    var currentTheme = ViewBag.Theme ?? "light";
+    var theme = Context.Request.Cookies["UserPreference"] ?? "light";
+}
+<body class="theme-@theme">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -26,11 +30,25 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="dropdown nav-item">
-                            <span class="align-content-center">Категории</span>
+                            <span class="align-content-center nav-link">Категории</span>
                             <div class="dropdown-content">
-                                <button class="btn-light btn" asp-area="" asp-controller="Home" asp-action="Index" name="chosenOne" value="България">България</button>
-                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="Светът">Светът</button>
+                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="Bulgaria">България</button>
+                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="World">Светът</button>
+                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="Politics">Политика</button>
+                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="Economy">Икономика</button>
+                                <button class="btn-light" asp-controller="Home" asp-action="Index" name="chosenOne" value="Sports">Спорт</button>
                             </div>
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <span class="align-content-center nav-link">Tеми</span>
+                            <form class="dropdown-content" asp-controller="Home">
+                                <label>
+                                    <input type="radio" name="theme" value="light" @currentTheme="light"/>Светла<br/>
+                                    <input type="radio" name="theme" value="dark" @currentTheme="dark"/>Тъмна
+                                </label>
+                                <button type="submit" asp-controller="Home" asp-action="ChangeTheme">Запази</button>
+                            </form>
                         </li>
                             @if (User.IsInRole("Admin") || User.IsInRole("Worker"))
                             {

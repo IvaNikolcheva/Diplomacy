@@ -1,52 +1,47 @@
 ﻿@model IEnumerable<NewsSite.Models.Article>
 
 <h2>Новина</h2>
-<!--if (User.Identity.IsAuthenticated){
+@if (User.Identity.IsAuthenticated)
+{
     if (User.IsInRole("Worker") || User.IsInRole("Admin"))
     {
-        
+
     }
-}-->
+}
 <a asp-action="Create" class="btn btn-primary">Добави новина</a>
 <div>
     <table>
         <thead>
             <tr>
-                <th>
-                    Снимка
-                </th>
-                <th>
-                    Заглавие
-                </th>
-                <th>
-                    Описание
-                </th>
+                <th>Снимка</th>
+                <th>Заглавие</th>
+                <th>Описание</th>
                 <th>Действие</th>
             </tr>
         </thead>
         <tbody>
-<!--    foreach (var article in Model)
-    {
-        <tr>
-            <td>
-                if (article.Image != null)
-                {
-                    <img src="data:image;base64,(Convert.ToBase64String(article.Image))" width="100" />
-                }
-            </td>
-            <td>article.Title</td>
-            <td>article.Content</td>
-            <td>
-                if (User.IsInRole("Worker") || User.IsInRole("Admin"))
-                {
-                    <a asp-action="Edit" asp-route-id="article.ArticleId">Редактирай</a>
-                    <form asp-action="Delete" asp-route-id="article.ArticleId" method="post">
-                        <button type="submit" class="btn btn-danger">Изтрий</button>
-                    </form>
-                }
-            </td>
-        </tr>
-    }-->
+            @foreach (var article in Model)
+            {
+                <tr>
+                    <td>
+                        @if (@article.Image != null)
+                        {
+                            <img src="data:image;base64,(Convert.ToBase64String(@article.Image))" width="100" />
+                        }
+                    </td>
+                    <td>article.Title</td>
+                    <td>article.Content</td>
+                    <td>
+                        @if (User.IsInRole("Worker") || User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@article.ArticleId">Редактирай</a>
+                            <form asp-action="Delete" asp-route-id="@article.ArticleId" method="post">
+                                <button type="submit" class="btn btn-danger">Изтрий</button>
+                            </form>
+                        }
+                    </td>
+            </tr>
+            }
         </tbody>
     </table>
 </div>

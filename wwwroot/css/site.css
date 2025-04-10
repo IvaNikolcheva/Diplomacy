@@ -36,3 +36,12 @@ html {
 body {
   margin-bottom: 60px;
 }
+body.theme-light {
+   background-color: floralwhite;
+   color: black;
+}
+
+body.theme-dark {
+    background-color: darkblue;
+    color: lawngreen;
+}
