@@ -1,13 +1,11 @@
 ﻿@model IEnumerable<NewsSite.Models.Article>
 
 @{
-    ViewBag.PageTitle = ViewData["PageTitle"];
     ViewData["Title"] = "Home Page";
     var theme = Context.Request.Cookies["UserPreference"] ?? "light";
-    var title = ViewBag.PageTitle;
 }
 
-<h1>@ViewBag.PageTitle</h1>
+<h1>Новините днес</h1>
 <div class="homepage-grid-container">
     @foreach(var @article in Model)
     {

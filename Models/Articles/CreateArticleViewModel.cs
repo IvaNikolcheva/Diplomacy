@@ -11,6 +11,7 @@ namespace NewsSite.Models.Articles
 
         [DataType(DataType.DateTime)]
         public DateTime PublishedDate { get; set; }
+        public string CategoryIds { get; set; }
         public string UserId { get; set; }
     }
 }

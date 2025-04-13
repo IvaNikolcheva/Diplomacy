@@ -36,10 +36,9 @@ namespace NewsSite.Controllers
         }
         public IActionResult Index(string chosenOne)
         {
+            ViewBag.ChosenCategory = chosenOne;
             var articles = _context.Articles.ToList();
             List<Article> chosenOnes = new List<Article>();
-            string title;
-
             if (chosenOne == null) 
             {
                 return View(articles);
@@ -55,61 +54,48 @@ namespace NewsSite.Controllers
                         {
                             case "Bulgaria":
                             {
-                                    title = "У нас";
-                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                    {
-                                        chosenOnes.Add(article);
-                                    }
-                                    ViewData["PageTitle"] = title;
-                                    break;
+                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
+                                {
+                                    chosenOnes.Add(article);
+                                }
                             }
+                            break;
                             case "World":
+                            {
+                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
                                 {
-                                    title = "По светът";
-                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                    {
-                                        chosenOnes.Add(article);
-                                    }
-                                    ViewData["PageTitle"] = title;
+                                    chosenOnes.Add(article);
                                 }
-                                break;
+                            }
+                            break;
                             case "Politics":
+                            {
+                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
                                 {
-                                    title = "Политика";
-                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                    {
-                                        chosenOnes.Add(article);
-                                    }
-                                    ViewData["PageTitle"] = title;
+                                    chosenOnes.Add(article);
                                 }
-                                break;
+                            }
+                            break;
                             case "Economy":
+                            {
+                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
                                 {
-                                    title = "Икономика";
-                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                    {
-                                        chosenOnes.Add(article);
-                                    }
-                                    ViewData["PageTitle"] = title;
-                                }
-                                break;
+                                    chosenOnes.Add(article);
+                                }                                
+                            }
+                            break;
                             case "Sports":
+                            {
+                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
                                 {
-                                    title = "Спорт";
-                                    if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                    {
-                                        chosenOnes.Add(article);
-                                    }
-                                    ViewData["PageTitle"] = title;
+                                    chosenOnes.Add(article);
                                 }
-                                break;
+                            }
+                            break;
                             default:
-                                {
-                                    title = "Новините днес";
-                                    ViewData["PageTitle"] = title;
-                                    return View(articles);
-                                    
-                                }
+                            {
+                                return View(articles);
+                            }
                         }
                     }
                     

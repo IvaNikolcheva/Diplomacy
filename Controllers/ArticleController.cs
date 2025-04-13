@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using NewsSite.Models.Articles;
 
 namespace NewsSite.Controllers
 {
+    [Authorize(Roles ="Admin,Worker")]
     public class ArticleController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
@@ -19,6 +21,17 @@ namespace NewsSite.Controllers
 
         public ActionResult Index()
         {
+            var articles = _dbContext.Articles.Include(s => s.ArticleCategories).ToList();
+            foreach(var article in articles)
+            {
+                if (article.ArticleCategories.Any())
+                {
+                    foreach (var category in article.ArticleCategories)
+                    {
+                        return View(articles);
+                    }
+                }
+            }
             return View();
             //https://www.youtube.com/watch?v=6YIRKBsRWVI
         }
@@ -44,13 +57,13 @@ namespace NewsSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateArticleViewModel model)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) 
             {
                 var article = new Article
                 {
                     Title = model.Title,
                     UserId = model.UserId,
-                    Content=model.Content,
+                    Content = model.Content,
                     PublishedDate = DateTime.Now,
                 };
 
