@@ -13,36 +13,26 @@ namespace NewsSite.Controllers
     public class ArticleController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
-
         public ArticleController(ApplicationDbContext dbContext)
         {
             _dbContext = dbContext;
         }
-
-        public ActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var articles = _dbContext.Articles.Include(s => s.ArticleCategories).ToList();
-            foreach(var article in articles)
-            {
-                if (article.ArticleCategories.Any())
-                {
-                    foreach (var category in article.ArticleCategories)
-                    {
-                        return View(articles);
-                    }
-                }
-            }
-            return View();
-            //https://www.youtube.com/watch?v=6YIRKBsRWVI
+            var articles = await _dbContext.Articles.Include(s => s.ArticleCategories).ThenInclude(sp => sp.Category).ToListAsync();
+            return View(articles);
+            //https://stackoverflow.com/questions/74841868/many-to-many-crud-operations-in-asp-net-core <3
         }
-
         public ActionResult Details(int id)
         {
             return View();
         }
-
         public ActionResult Create()
         {
+            /*IEnumerable<ApplicationUser> SuppliesList = _dbContext.Users.Include(s => s.FirstName);
+            ViewBag.Supplies = SuppliesList;
+            return View();
+            just checking something out*/
             var users = _dbContext.Users;
             List<string> usersList = new List<string>();
             foreach(var user in users)
@@ -52,7 +42,6 @@ namespace NewsSite.Controllers
             ViewData["UserId"] = new SelectList(usersList);
             return View();
         }
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateArticleViewModel model)

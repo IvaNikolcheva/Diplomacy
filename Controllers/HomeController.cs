@@ -102,8 +102,6 @@ namespace NewsSite.Controllers
                 }
                 return View(chosenOnes);
             }
-
-
             return View(articles);
         }
 
