@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using NewsSite.Data;
 using NewsSite.Models;
@@ -19,9 +20,46 @@ namespace NewsSite.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var articles = await _dbContext.Articles.Include(s => s.ArticleCategories).ThenInclude(sp => sp.Category).ToListAsync();
-            return View(articles);
-            //https://stackoverflow.com/questions/74841868/many-to-many-crud-operations-in-asp-net-core <3
+            List<SelectListItem> items = PopulateFruits();
+
+            var articles = await _dbContext.Articles.ToListAsync();
+            var categories = await _dbContext.Categories.ToListAsync();
+            var articleCategories = await _dbContext.ArticleCategories.ToListAsync();
+            var model = new CombinedViewModel
+            {
+                ListModelArticles = articles,
+                ListModelCategories = categories,
+                ListModelArticleCategories = articleCategories
+            };
+            return View(model);
+        }
+        //https://www.aspsnippets.com/Articles/3271/ASPNet-Core-MVC-Binding-CheckBox-with-Model/
+        private static List<SelectListItem> PopulateFruits()
+        {
+            string constr = @"Data Source=.\SQL2019;Initial Catalog=AjaxSamples;Integrated Security=true";
+            List<SelectListItem> items = new List<SelectListItem>();
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                string query = " SELECT FruitName, FruitId FROM Fruits";
+                using (SqlCommand cmd = new SqlCommand(query))
+                {
+                    cmd.Connection = con;
+                    con.Open();
+                    using (SqlDataReader sdr = cmd.ExecuteReader())
+                    {
+                        while (sdr.Read())
+                        {
+                            items.Add(new SelectListItem
+                            {
+                                Text = sdr["FruitName"].ToString(),
+                                Value = sdr["FruitId"].ToString()
+                            });
+                        }
+                    }
+                    con.Close();
+                }
+            }
+            return items;
         }
         public ActionResult Details(int id)
         {
@@ -29,10 +67,6 @@ namespace NewsSite.Controllers
         }
         public ActionResult Create()
         {
-            /*IEnumerable<ApplicationUser> SuppliesList = _dbContext.Users.Include(s => s.FirstName);
-            ViewBag.Supplies = SuppliesList;
-            return View();
-            just checking something out*/
             var users = _dbContext.Users;
             List<string> usersList = new List<string>();
             foreach(var user in users)

@@ -1,13 +1,9 @@
-﻿@model IEnumerable<NewsSite.Models.Article>
+﻿@using NewsSite.Models.Articles
+
+@model CombinedViewModel
 
 <h2>Новина</h2>
-@if (User.Identity.IsAuthenticated)
-{
-    if (User.IsInRole("Worker") || User.IsInRole("Admin"))
-    {
 
-    }
-}
 <a asp-action="Create" class="btn btn-primary">Добави новина</a>
 <div>
     <table>
@@ -21,35 +17,42 @@
             </tr>
         </thead>
         <tbody>
-            <!--foreach (var article in Model)
+            @foreach (var @article in Model.ListModelArticles)
             {
                 <tr>
                     <td>
-                        if (article.Image != null)
+                        @if (@article.Image != null)
                         {
-                            <img src="data:image;base64,(Convert.ToBase64String(article.Image))" width="100" />
+                            <img src="data:image;base64,(Convert.ToBase64String(@article.Image))" width="100" />
                         }
                     </td>
-                    <td>article.Title</td>
-                    <td>article.Content</td>
+                    <td>@article.Title</td>
+                    <td>@article.Content</td>
                     <td>
-                        if (User.IsInRole("Worker") || User.IsInRole("Admin"))
+                        @foreach (var @category in Model.ListModelCategories)
                         {
-                            <a asp-action="Edit" asp-route-id="article.ArticleId">Редактирай</a>
-                            <form asp-action="Delete" asp-route-id="article.ArticleId" method="post">
-                                <button type="submit" class="btn btn-danger">Изтрий</button>
-                            </form>
+                            @foreach (var @categoryArticle in Model.ListModelArticleCategories)
+                            {
+
+                                @if (article.ArticleId == @categoryArticle.ArticleId && @category.CategoryId == categoryArticle.CategoryId)
+                                {
+                                    <p>@category.CategoryName </p>
+                                }
+
+                            }
                         }
                     </td>
-----------------Don't take it as actual code'-----------
                     <td>
-                        foreach (var articleCategory in article)
+                        @if (User.IsInRole("Worker") || User.IsInRole("Admin"))
                         {
-                            article.Category.ToList();
+                        <a asp-action="Edit" asp-route-id="@article.ArticleId">Редактирай</a>
+                        <form asp-action="Delete" asp-route-id="@article.ArticleId" method="post">
+                            <button type="submit" class="btn btn-danger">Изтрий</button>
+                        </form>
                         }
                     </td>
-            </tr>
-            }-->
+                </tr>
+            }
         </tbody>
     </table>
 </div>
