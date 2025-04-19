@@ -10,7 +10,7 @@
 
     <div class="form-group">
         <label asp-for="Content">Съдържание</label>
-        <input asp-for="Content" class="form-control" />
+        <input asp-for="Content" class="form-control"/>
     </div>
 
     <div class="form-group">
@@ -20,14 +20,15 @@
         </select>
     </div>
     <div class="form-group">
-        <label asp-for="CategoryIds">Категория</label><br />
-        <label>
-            <input asp-for="CategoryIds" type="checkbox" value="Bulgaria" name="chosenCategory"/>България<br/>
-            <input asp-for="CategoryIds" type="checkbox" value="World" name="chosenCategory" />Светът<br />
-            <input asp-for="CategoryIds" type="checkbox" value="Politics" name="chosenCategory" />Политика<br />
-            <input asp-for="CategoryIds" type="checkbox" value="Economy" name="chosenCategory" />Икономика<br />
-            <input asp-for="CategoryIds" type="checkbox" value="Sports" name="chosenCategory" />Спорт<br />
-        </label>
+        <label>Категории</label><br />
+        @for (int i = 0; i < Model.Categories.Count; i++)
+        {
+            <div>
+                <input type="checkbox" asp-for="Categories[i].IsSelected" />
+                <input type="hidden" asp-for="Categories[i].CategoryId" />
+                @Model.Categories[i].CategoryName
+            </div>
+        }
     </div>
     
     <div class="form-group">

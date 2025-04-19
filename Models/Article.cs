@@ -14,6 +14,6 @@ namespace NewsSite.Models
         public DateTime PublishedDate { get; set; }
         public string UserId { get; set; }
         public ApplicationUser User{ get; set; }
-        public ICollection<ArticleCategory> ArticleCategories { get; set; }
+        public ICollection<ArticleCategory> ArticleCategories { get; set; } = new List<ArticleCategory>();
     }
 }

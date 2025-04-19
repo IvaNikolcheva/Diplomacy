@@ -10,8 +10,14 @@ namespace NewsSite.Models.Articles
         public string Content { get; set; }
 
         [DataType(DataType.DateTime)]
-        public DateTime PublishedDate { get; set; }
-        public string CategoryIds { get; set; }
+        public DateTime PublishedDate { get; set; } = DateTime.Now;
         public string UserId { get; set; }
+        public List<CategoryCheckboxItem> Categories { get; set; }
+    }
+    public class CategoryCheckboxItem
+    {
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

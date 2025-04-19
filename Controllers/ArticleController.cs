@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using NewsSite.Data;
 using NewsSite.Models;
 using NewsSite.Models.Articles;
+using System.Linq;
 
 namespace NewsSite.Controllers
 {
@@ -20,8 +21,6 @@ namespace NewsSite.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            List<SelectListItem> items = PopulateFruits();
-
             var articles = await _dbContext.Articles.ToListAsync();
             var categories = await _dbContext.Categories.ToListAsync();
             var articleCategories = await _dbContext.ArticleCategories.ToListAsync();
@@ -33,40 +32,22 @@ namespace NewsSite.Controllers
             };
             return View(model);
         }
-        //https://www.aspsnippets.com/Articles/3271/ASPNet-Core-MVC-Binding-CheckBox-with-Model/
-        private static List<SelectListItem> PopulateFruits()
-        {
-            string constr = @"Data Source=.\SQL2019;Initial Catalog=AjaxSamples;Integrated Security=true";
-            List<SelectListItem> items = new List<SelectListItem>();
-            using (SqlConnection con = new SqlConnection(constr))
-            {
-                string query = " SELECT FruitName, FruitId FROM Fruits";
-                using (SqlCommand cmd = new SqlCommand(query))
-                {
-                    cmd.Connection = con;
-                    con.Open();
-                    using (SqlDataReader sdr = cmd.ExecuteReader())
-                    {
-                        while (sdr.Read())
-                        {
-                            items.Add(new SelectListItem
-                            {
-                                Text = sdr["FruitName"].ToString(),
-                                Value = sdr["FruitId"].ToString()
-                            });
-                        }
-                    }
-                    con.Close();
-                }
-            }
-            return items;
-        }
         public ActionResult Details(int id)
         {
             return View();
         }
         public ActionResult Create()
         {
+            var categories = _dbContext.Categories.ToList();
+            var viewmodel = new CreateArticleViewModel
+            {
+                Categories = categories.Select(c => new CategoryCheckboxItem
+                {
+                    CategoryId = c.CategoryId,
+                    CategoryName = c.CategoryName,
+                    IsSelected = false
+                }).ToList()
+            };
             var users = _dbContext.Users;
             List<string> usersList = new List<string>();
             foreach(var user in users)
@@ -74,12 +55,13 @@ namespace NewsSite.Controllers
                 usersList.Add(user.FirstName.ToString() + " " + user.FamilyName.ToString());
             }
             ViewData["UserId"] = new SelectList(usersList);
-            return View();
+            return View(viewmodel);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateArticleViewModel model)
+        public async Task<IActionResult> Create(CreateArticleViewModel model, List<string> chosenCategories)
         {
+
             if (ModelState.IsValid) 
             {
                 var article = new Article
@@ -87,9 +69,18 @@ namespace NewsSite.Controllers
                     Title = model.Title,
                     UserId = model.UserId,
                     Content = model.Content,
-                    PublishedDate = DateTime.Now,
+                    PublishedDate = model.PublishedDate,
                 };
-
+                foreach (var categoryItem in model.Categories)
+                {
+                    if (categoryItem.IsSelected)
+                    {
+                        article.ArticleCategories.Add(new ArticleCategory
+                        {
+                            CategoryId = categoryItem.CategoryId
+                        });
+                    }
+                }
                 if (model.ImageFile != null)
                 {
                     using (var ms = new MemoryStream())
@@ -100,6 +91,7 @@ namespace NewsSite.Controllers
                 }
                 _dbContext.Articles.Add(article);
                 await _dbContext.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
             ViewData["UserId"] = new SelectList(_dbContext.Users, "UserId", "FirstName");
