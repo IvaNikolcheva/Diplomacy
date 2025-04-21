@@ -1,6 +1,4 @@
-﻿@using NewsSite.Models.Articles
-
-@model CombinedViewModel
+﻿@model IEnumerable<NewsSite.Models.Article>
 
 <h2>Новина</h2>
 
@@ -13,11 +11,12 @@
                 <th>Заглавие</th>
                 <th>Съдържание</th>
                 <td>Категории</td>
+                <td>Автор</td>
                 <th>Действие</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var @article in Model.ListModelArticles)
+            @foreach (var @article in Model)
             {
                 <tr>
                     <td>
@@ -28,20 +27,8 @@
                     </td>
                     <td>@article.Title</td>
                     <td>@article.Content</td>
-                    <td>
-                        @foreach (var @category in Model.ListModelCategories)
-                        {
-                            @foreach (var @categoryArticle in Model.ListModelArticleCategories)
-                            {
-
-                                @if (article.ArticleId == @categoryArticle.ArticleId && @category.CategoryId == categoryArticle.CategoryId)
-                                {
-                                    <p>@category.CategoryName </p>
-                                }
-
-                            }
-                        }
-                    </td>
+                    <td>@article.Category.CategoryName</td>
+                    <td>@article.User.FirstName @article.User.FamilyName</td>
                     <td>
                         @if (User.IsInRole("Worker") || User.IsInRole("Admin"))
                         {

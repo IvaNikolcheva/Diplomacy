@@ -1,23 +1,29 @@
 ﻿@model IEnumerable<NewsSite.Models.Article>
-
+<head>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
 @{
     ViewData["Title"] = "Home Page";
     var theme = Context.Request.Cookies["UserPreference"] ?? "light";
 }
-
-<h1>Новините днес</h1>
-<div class="homepage-grid-container">
-    @foreach(var @article in Model)
-    {
-        <div class="homepage-grid-item">
-            @if (article.Image != null)
-            {
-                <img src="data:image;base64,@(Convert.ToBase64String(article.Image))" width="100" />
-            }
-            <label>@article.Title</label>
-            <label>@article.User</label>
-            <p>@article.ArticleCategories</p>
-            <p>@article.PublishedDate</p>
-        </div>
-    }
-</div>
+<body>
+    <h1>Новините днес</h1>
+    <div class="homepage-grid-container">
+        @foreach (var @article in Model)
+        {
+            <a class="text-dark" asp-action="Details" asp-controller="Article" asp-route-id="@article.ArticleId">
+                <div class="homepage-grid-item">
+                    @if (@article.Image != null)
+                    {
+                        <img src="data:image;base64,@(Convert.ToBase64String(@article.Image))" width="100" />
+                    }
+                    <p>@article.Title</p>
+                    <p>@article.Content</p>
+                    <p>@article.User</p>
+                    <p>@article.Category</p>
+                    <p>@article.PublishedDate</p>
+                </div>
+            </a>
+        }
+    </div>
+</body>

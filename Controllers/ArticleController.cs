@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
@@ -15,51 +16,35 @@ namespace NewsSite.Controllers
     public class ArticleController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
-        public ArticleController(ApplicationDbContext dbContext)
+        private readonly UserManager<ApplicationUser> _userManager;
+        public ArticleController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
+            _userManager = userManager;
         }
         public async Task<IActionResult> Index()
         {
-            var articles = await _dbContext.Articles.ToListAsync();
-            var categories = await _dbContext.Categories.ToListAsync();
-            var articleCategories = await _dbContext.ArticleCategories.ToListAsync();
-            var model = new CombinedViewModel
-            {
-                ListModelArticles = articles,
-                ListModelCategories = categories,
-                ListModelArticleCategories = articleCategories
-            };
-            return View(model);
+            var articles = await _dbContext.Articles
+                .Include(b => b.User)
+                .Include(b => b.Category)
+                .ToListAsync();
+            return View(articles);
         }
         public ActionResult Details(int id)
         {
-            return View();
+            var article = _dbContext.Articles.Include(b => b.User)
+                .Include(b => b.Category).FirstOrDefault(x => x.ArticleId == id);
+            return View(article);
         }
         public ActionResult Create()
         {
-            var categories = _dbContext.Categories.ToList();
-            var viewmodel = new CreateArticleViewModel
-            {
-                Categories = categories.Select(c => new CategoryCheckboxItem
-                {
-                    CategoryId = c.CategoryId,
-                    CategoryName = c.CategoryName,
-                    IsSelected = false
-                }).ToList()
-            };
-            var users = _dbContext.Users;
-            List<string> usersList = new List<string>();
-            foreach(var user in users)
-            {
-                usersList.Add(user.FirstName.ToString() + " " + user.FamilyName.ToString());
-            }
-            ViewData["UserId"] = new SelectList(usersList);
-            return View(viewmodel);
+            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "CategoryId", "CategoryName");
+            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName");
+            return View();
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateArticleViewModel model, List<string> chosenCategories)
+        public async Task<IActionResult> Create(CreateArticleViewModel model)
         {
 
             if (ModelState.IsValid) 
@@ -69,18 +54,9 @@ namespace NewsSite.Controllers
                     Title = model.Title,
                     UserId = model.UserId,
                     Content = model.Content,
-                    PublishedDate = model.PublishedDate,
+                    CategoryId=model.CategoryId,
+                    PublishedDate = DateTime.Now,
                 };
-                foreach (var categoryItem in model.Categories)
-                {
-                    if (categoryItem.IsSelected)
-                    {
-                        article.ArticleCategories.Add(new ArticleCategory
-                        {
-                            CategoryId = categoryItem.CategoryId
-                        });
-                    }
-                }
                 if (model.ImageFile != null)
                 {
                     using (var ms = new MemoryStream())
@@ -94,7 +70,10 @@ namespace NewsSite.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["UserId"] = new SelectList(_dbContext.Users, "UserId", "FirstName");
+
+
+            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "CategoryName", model.CategoryId);
+            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
             return View(model);
         }
 

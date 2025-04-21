@@ -19,21 +19,17 @@
             <option value="">Моля изберете автор</option>
         </select>
     </div>
+
     <div class="form-group">
-        <label>Категории</label><br />
-        @for (int i = 0; i < Model.Categories.Count; i++)
-        {
-            <div>
-                <input type="checkbox" asp-for="Categories[i].IsSelected" />
-                <input type="hidden" asp-for="Categories[i].CategoryId" />
-                @Model.Categories[i].CategoryName
-            </div>
-        }
+        <label asp-for="CategoryId">Категория</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.CategoryId" class="form-control">
+            <option value="">Моля изберете категория</option>
+        </select>
     </div>
-    
+
     <div class="form-group">
-        <label asp-for="ImageFile">Качи снимка</label>
-        <input type="file" asp-for="ImageFile" class="form-control" />
+        <label asp-for="ImageFile" class="">Снимка на творбата</label>
+        <input asp-for="ImageFile" class="form-control" accept="image/*" type="file" />
     </div>
 
     <button type="submit" class="btn btn-success">Запази</button>

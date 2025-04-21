@@ -1,7 +1,20 @@
 html {
   font-size: 14px;
 }
-
+.homepage-grid-container {
+    display: grid;
+    background-color: mediumturquoise;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border-radius: 45px;
+}
+.homepage-grid-item {
+    background-color: #7da3ed;
+    padding: 25px;
+    font-size: 20px;
+    text-align: center;
+    align-items: center; /* Vertical alignment don't remove */
+}
 @media (min-width: 768px) {
   html {
     font-size: 16px;

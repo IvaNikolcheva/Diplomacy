@@ -4,20 +4,14 @@ namespace NewsSite.Models.Articles
 {
     public class CreateArticleViewModel
     {
+        [Required]
         public string Title { get; set; }
-        [Display(Name = "Upload Image")]
+        [Required(ErrorMessage = "The image file is mandatory")]
+        [Display(Name = "Upload an Image")]
         public IFormFile ImageFile { get; set; }
+        [Required]
         public string Content { get; set; }
-
-        [DataType(DataType.DateTime)]
-        public DateTime PublishedDate { get; set; } = DateTime.Now;
         public string UserId { get; set; }
-        public List<CategoryCheckboxItem> Categories { get; set; }
-    }
-    public class CategoryCheckboxItem
-    {
         public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
-        public bool IsSelected { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace NewsSite.Controllers
             ViewBag.ChosenCategory = chosenOne;
             var articles = _context.Articles.ToList();
             List<Article> chosenOnes = new List<Article>();
-            if (chosenOne == null) 
+            if (chosenOne == null)
             {
                 return View(articles);
             }
@@ -47,62 +47,41 @@ namespace NewsSite.Controllers
             {
                 foreach (var article in articles)
                 {
-                    var articleCategories = _context.ArticleCategories.Where(n => n.ArticleId == article.ArticleId).ToList();
-                    foreach (var articleCategory in articleCategories)
+                    switch (chosenOne)
                     {
-                        switch (chosenOne)
-                        {
-                            case "Bulgaria":
+                        case "Bulgaria":
                             {
-                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                {
-                                    chosenOnes.Add(article);
-                                }
+                                chosenOnes.Add(article);
                             }
                             break;
-                            case "World":
+                        case "World":
                             {
-                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                {
-                                    chosenOnes.Add(article);
-                                }
+                                chosenOnes.Add(article);
                             }
                             break;
-                            case "Politics":
+                        case "Politics":
                             {
-                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                {
-                                    chosenOnes.Add(article);
-                                }
+                                chosenOnes.Add(article);
                             }
                             break;
-                            case "Economy":
+                        case "Economy":
                             {
-                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                {
-                                    chosenOnes.Add(article);
-                                }                                
+                                chosenOnes.Add(article);
                             }
                             break;
-                            case "Sports":
+                        case "Sports":
                             {
-                                if (article.ArticleId == articleCategory.ArticleId && articleCategory.Category.CategoryName == chosenOne)
-                                {
-                                    chosenOnes.Add(article);
-                                }
+                                chosenOnes.Add(article);
                             }
                             break;
-                            default:
+                        default:
                             {
                                 return View(articles);
                             }
-                        }
                     }
-                    
                 }
-                return View(chosenOnes);
             }
-            return View(articles);
+            return View(chosenOnes);
         }
 
         public IActionResult Privacy()
