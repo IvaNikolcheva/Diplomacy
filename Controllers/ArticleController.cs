@@ -98,9 +98,22 @@ namespace NewsSite.Controllers
         [Authorize(Roles = "Admin,Worker")]
         public ActionResult Delete(int id)
         {
-            var article = _dbContext.Articles.Include(b => b.User)
-                .Include(b => b.Category).FirstOrDefault(x => x.ArticleId == id);
-            return View(article);
+            var article = _dbContext.Articles.Include(b => b.User).Include(c => c.Category)
+                .FirstOrDefault(x => x.ArticleId == id);
+
+            if (article == null) return NotFound();
+
+            var model = new DeleteArticleViewModel
+            {
+                Id = article.ArticleId,
+                Title = article.Title,
+                Content=article.Content,
+                Image=article.Image,
+                PublishedDate=article.PublishedDate,
+                Category=article.Category.CategoryName,
+                User=article.User.FirstName + article.User.FamilyName
+            };
+            return View(model);
         }
         [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
