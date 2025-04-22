@@ -4,7 +4,7 @@
 
 @if (User.IsInRole("Admin"))
 {
-    <a asp-action="Delete" class="btn btn-danger">Изтриване</a>
+    <a asp-action="Delete" asp-route-id="@Model.ArticleId" class="btn btn-danger">Изтриване</a>
 }
 <div>
     <fieldset class="box-shadow fw-bold">

@@ -12,6 +12,7 @@
 </div>
 
 <form asp-action="Delete" method="post">
+    <hidden><input type="hidden" asp-for="Id"></hidden>
     <button type="submit" class="btn btn-danger">Delete</button>
     <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
 </form>
