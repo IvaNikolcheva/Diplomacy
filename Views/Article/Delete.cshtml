@@ -1,0 +1,17 @@
+﻿@model NewsSite.Models.Article
+
+<h1>Сигурни ли сте, че искате да изтриете тази новина?</h1>
+
+<div>
+    <h5>Заглавие @Model.Title</h5>
+    <p>Снимка: @Model.Image</p>
+    <p>Съдържание: @Model.Content</p>
+    <p>Дата на публикуване: @Model.PublishedDate</p>
+    <p>Автор: @Model.User</p>
+    <p>Категория: @Model.Category</p>
+</div>
+
+<form asp-action="Delete" method="post">
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Cancel</a>
+</form>

@@ -3,17 +3,19 @@ html {
 }
 .homepage-grid-container {
     display: grid;
-    background-color: mediumturquoise;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     border-radius: 45px;
 }
 .homepage-grid-item {
-    background-color: #7da3ed;
+    background-color: beige;
     padding: 25px;
     font-size: 20px;
     text-align: center;
-    align-items: center; /* Vertical alignment don't remove */
+    align-items: center;
+}
+.date{
+
 }
 @media (min-width: 768px) {
   html {
@@ -49,12 +51,12 @@ html {
 body {
   margin-bottom: 60px;
 }
-body.theme-light {
+.theme-light {
    background-color: floralwhite;
    color: black;
 }
 
-body.theme-dark {
+.theme-dark {
     background-color: darkblue;
     color: lawngreen;
 }

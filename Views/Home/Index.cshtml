@@ -11,17 +11,16 @@
     <div class="homepage-grid-container">
         @foreach (var @article in Model)
         {
-            <a class="text-dark" asp-action="Details" asp-controller="Article" asp-route-id="@article.ArticleId">
+            <a class="text-dark" style="text-decoration:none" asp-action="Details" asp-controller="Article" asp-route-id="@article.ArticleId">
                 <div class="homepage-grid-item">
                     @if (@article.Image != null)
                     {
-                        <img src="data:image;base64,@(Convert.ToBase64String(@article.Image))" width="100" />
+                        <img src="data:image;base64,@(Convert.ToBase64String(@article.Image))" width="400" />
                     }
-                    <p>@article.Title</p>
-                    <p>@article.Content</p>
+                    <p class="card-title">@article.Title</p>
                     <p>@article.User</p>
                     <p>@article.Category</p>
-                    <p>@article.PublishedDate</p>
+                    <p class="date">@article.PublishedDate</p>
                 </div>
             </a>
         }

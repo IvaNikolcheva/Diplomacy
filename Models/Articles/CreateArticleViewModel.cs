@@ -4,10 +4,11 @@ namespace NewsSite.Models.Articles
 {
     public class CreateArticleViewModel
     {
+        public int Id { get; set; }
         [Required]
         public string Title { get; set; }
-        [Required(ErrorMessage = "The image file is mandatory")]
-        [Display(Name = "Upload an Image")]
+        [Required(ErrorMessage = "Снимката е задължителна")]
+        [Display(Name = "Добави снимка")]
         public IFormFile ImageFile { get; set; }
         [Required]
         public string Content { get; set; }

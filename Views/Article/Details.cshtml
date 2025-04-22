@@ -1,18 +1,23 @@
 ﻿@model NewsSite.Models.Article
 
-<h2>@Model.Title</h2>
+<a asp-controller="Home" asp-action="Index" class="btn btn-primary">Обратно към новините</a>
 
+@if (User.IsInRole("Admin"))
+{
+    <a asp-action="Delete" class="btn btn-danger">Изтриване</a>
+}
 <div>
-    <fieldset class="box-shadow">
+    <fieldset class="box-shadow fw-bold">
         @if (Model.Image != null)
         {
-            <img src="data:image;base64,@(Convert.ToBase64String(@Model.Image))" width="100" />
+            <img class="card-img-top" src="data:image;base64,@(Convert.ToBase64String(@Model.Image))" height="300" />
         }
-        <p class="align-items-lg-center">@Model.Content</p>
+        <h2 class="text-lg-center">@Model.Title</h2>
 
-        <label class="align-items-md-end">@Model.User.FirstName @Model.User.FamilyName</label>
+        <p class="text-center">@Model.Content</p>
 
-        <label class="align-items-md-center">@Model.Category.CategoryName</label>
+        <label class="text-end">@Model.User.FirstName @Model.User.FamilyName</label>
+
+        <label class="text-start">@Model.Category.CategoryName</label>
     </fieldset>
 </div>
-<a asp-action="Index" class="btn btn-primary">Back to list</a>

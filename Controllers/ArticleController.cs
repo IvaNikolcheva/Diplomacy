@@ -12,7 +12,6 @@ using System.Linq;
 
 namespace NewsSite.Controllers
 {
-    [Authorize(Roles ="Admin,Worker")]
     public class ArticleController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
@@ -22,6 +21,7 @@ namespace NewsSite.Controllers
             _dbContext = dbContext;
             _userManager = userManager;
         }
+        [Authorize(Roles = "Admin,Worker")]
         public async Task<IActionResult> Index()
         {
             var articles = await _dbContext.Articles
@@ -36,12 +36,14 @@ namespace NewsSite.Controllers
                 .Include(b => b.Category).FirstOrDefault(x => x.ArticleId == id);
             return View(article);
         }
+        [Authorize(Roles = "Admin,Worker")]
         public ActionResult Create()
         {
             ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "CategoryId", "CategoryName");
             ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName");
             return View();
         }
+        [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateArticleViewModel model)
@@ -70,18 +72,16 @@ namespace NewsSite.Controllers
 
                 return RedirectToAction(nameof(Index));
             }
-
-
             ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "CategoryName", model.CategoryId);
             ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
             return View(model);
         }
-
+        [Authorize(Roles = "Admin,Worker")]
         public ActionResult Edit(int id)
         {
             return View();
         }
-
+        [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -95,24 +95,24 @@ namespace NewsSite.Controllers
                 return View();
             }
         }
-
+        [Authorize(Roles = "Admin,Worker")]
         public ActionResult Delete(int id)
         {
-            return View();
+            var article = _dbContext.Articles.Include(b => b.User)
+                .Include(b => b.Category).FirstOrDefault(x => x.ArticleId == id);
+            return View(article);
         }
-
+        [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, DeleteArticleViewModel model)
         {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
+            var article = _dbContext.Articles.Find(id);
+            if (article == null) return NotFound();
+
+            _dbContext.Articles.Remove(article);
+            _dbContext.SaveChanges();
+            return RedirectToAction(nameof(Index));
         }
     }
 }
