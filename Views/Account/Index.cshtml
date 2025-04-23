@@ -1,0 +1,37 @@
+﻿@model ICollection<NewsSite.Models.ApplicationUser>
+
+<h2>Потребители</h2>
+
+<a asp-action="Create" class="btn btn-primary">Добави потребител</a>
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>E-mail</th>
+                <th>Собствено име</th>
+                <th>Бащино име</th>
+                <td>Фамилия</td>
+                <td>Псевдоним</td>
+                <td>Роля</td>
+                <th>Действие</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var @user in Model)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>@user.FirstName</td>
+                    <td>@user.FatherName</td>
+                    <td>@user.FamilyName</td>
+                    <td>@user.CustomUsername</td>
+                    <td></td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="Delete">Изтрий</a>
+                        <a class="btn btn-secondary" asp-action="Edit">Редактирай</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

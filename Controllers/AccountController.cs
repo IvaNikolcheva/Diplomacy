@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using NewsSite.Data;
 using NewsSite.Models;
 using NewsSite.Models.Account;
 
@@ -9,6 +11,7 @@ namespace NewsSite.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly ApplicationDbContext _dbContext;
         private readonly RoleManager<IdentityRole> _roleManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
@@ -83,6 +86,45 @@ namespace NewsSite.Controllers
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult Index()
+        {
+            var usersWithRoles=(from user in _dbContext.Users
+                                select new
+                                {
+                                    UserId = user.Id,
+                                    Email = user.Email,
+                                    FirstName = user.FirstName,
+                                    FatherName = user.FatherName,
+                                    FamilyName = user.FamilyName,
+                                    UserName = user.CustomUsername,
+                                    RoleNames = (from userRole in user.Roles
+                                                 join role
+                                                 in _dbContext.Roles
+                                                 on userRole.RoleId
+                                                 equals role.Id
+                                                 select role.Name).ToList()
+                                }).ToList().Select(p => new UsersInRoleViewModel()
+                                {
+                                    UserId = p.UserId,
+                                    Username = p.Username,
+                                    Email = p.Email,
+                                    Role = string.Join(",", p.RoleNames)
+                                });
+            return View(usersWithRoles);
+            /*List<ApplicationUser> applicationUsers = new List<ApplicationUser>();
+            var users=_userManager.Users.ToList();
+            foreach (var user in users)
+            {
+                applicationUsers.Add(user);
+            }
+            return View(applicationUsers);*/
+        }
+
+        public ActionResult Edit(int id) 
+        {
+            
+            return View();
         }
     }
 }

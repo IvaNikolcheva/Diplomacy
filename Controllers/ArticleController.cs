@@ -16,19 +16,41 @@ namespace NewsSite.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly UserManager<ApplicationUser> _userManager;
-        public ArticleController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
+        private readonly RoleManager<IdentityRole> _roleManager;
+        public ArticleController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             _dbContext = dbContext;
             _userManager = userManager;
+            _roleManager = roleManager;
         }
         [Authorize(Roles = "Admin,Worker")]
         public async Task<IActionResult> Index()
         {
+            var user = await _userManager.GetUserAsync(User);
+            var role = await _userManager.GetRolesAsync(user);
+
+            List<Article> userArticles = new List<Article>();
             var articles = await _dbContext.Articles
                 .Include(b => b.User)
                 .Include(b => b.Category)
                 .ToListAsync();
-            return View(articles);
+
+            if (role.ToString() == "Admin")
+            { 
+                return View(articles);
+            }
+            else if(role.ToString() == "Worker")
+            {
+                foreach (var article in articles)
+                {
+                    if (article.UserId == _userManager.GetUserId(User))
+                    {
+                        userArticles.Add(article);
+                    }
+                }
+                return View(userArticles);
+            }
+            return RedirectToAction("Index", "Home");
         }
         public ActionResult Details(int id)
         {
@@ -79,6 +101,8 @@ namespace NewsSite.Controllers
         [Authorize(Roles = "Admin,Worker")]
         public ActionResult Edit(int id)
         {
+            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "CategoryId", "CategoryName");
+            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName");
             return View();
         }
         [Authorize(Roles = "Admin,Worker")]
