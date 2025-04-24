@@ -70,15 +70,14 @@ namespace NewsSite.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CreateArticleViewModel model)
         {
-
-            if (ModelState.IsValid) 
+            if (ModelState.IsValid)
             {
                 var article = new Article
                 {
                     Title = model.Title,
                     UserId = model.UserId,
                     Content = model.Content,
-                    CategoryId=model.CategoryId,
+                    CategoryId = model.CategoryId,
                     PublishedDate = DateTime.Now,
                 };
                 if (model.ImageFile != null)
@@ -98,6 +97,7 @@ namespace NewsSite.Controllers
             ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
             return View(model);
         }
+
         [Authorize(Roles = "Admin,Worker")]
         public ActionResult Edit(int id)
         {
@@ -105,6 +105,7 @@ namespace NewsSite.Controllers
             ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName");
             return View();
         }
+
         [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]

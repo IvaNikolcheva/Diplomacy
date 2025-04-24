@@ -1,4 +1,4 @@
-﻿@model ICollection<NewsSite.Models.ApplicationUser>
+﻿@model ICollection<NewsSite.Models.Account.UsersInRoleViewModel>
 
 <h2>Потребители</h2>
 
@@ -24,8 +24,8 @@
                     <td>@user.FirstName</td>
                     <td>@user.FatherName</td>
                     <td>@user.FamilyName</td>
-                    <td>@user.CustomUsername</td>
-                    <td></td>
+                    <td>@user.Username</td>
+                    <td>@user.Role</td>
                     <td>
                         <a class="btn btn-danger" asp-action="Delete">Изтрий</a>
                         <a class="btn btn-secondary" asp-action="Edit">Редактирай</a>

@@ -8,12 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/NewsSite.styles.css" asp-append-version="true" />
 </head>
-@{
-    var currentTheme = ViewBag.Theme ?? "light";
-    var chosenOne=ViewBag.ChosenCategory;
-    var theme = Context.Request.Cookies["UserPreference"] ?? "light";
-}
-<body class="theme-@theme">
+<body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -40,24 +35,13 @@
                                 <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenOne" value="Sports">Спорт</a>
                             </div>
                         </li>
-
-                        <li class="dropdown nav-item text-dark">
-                            <span class="align-content-center nav-link">Tеми</span>
-                            <form class="dropdown-content" asp-controller="Home">
-                                <label>
-                                    <input type="radio" name="theme" value="light" @currentTheme="light"/>Светла<br/>
-                                    <input type="radio" name="theme" value="dark" @currentTheme="dark"/>Тъмна
-                                </label>
-                                <button type="submit" asp-controller="Home" asp-action="ChangeTheme">Запази</button>
-                            </form>
-                        </li>
                             @if (User.IsInRole("Admin" ) || User.IsInRole("Worker"))
                             {
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="Index">Моите новини</a>
+                                    <a class="nav-link text-dark" asp-controller="Article" asp-action="Index">Моите новини</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark" asp-area="" asp-controller="Article" asp-action="Create">Създай новина</a>
+                                    <a class="nav-link text-dark" asp-controller="Article" asp-action="Create">Създай новина</a>
                                 </li>
                             }
                         @if (User.IsInRole("Admin"))

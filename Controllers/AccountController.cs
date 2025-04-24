@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NewsSite.Data;
 using NewsSite.Models;
@@ -16,8 +17,9 @@ namespace NewsSite.Controllers
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public AccountController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
+        public AccountController(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ApplicationDbContext dbContext)
         {
+            _dbContext = dbContext;
             _roleManager = roleManager;
             _userManager = userManager;
             _signInManager = signInManager;
@@ -89,42 +91,80 @@ namespace NewsSite.Controllers
         }
         public ActionResult Index()
         {
-            var usersWithRoles=(from user in _dbContext.Users
-                                select new
-                                {
-                                    UserId = user.Id,
-                                    Email = user.Email,
-                                    FirstName = user.FirstName,
-                                    FatherName = user.FatherName,
-                                    FamilyName = user.FamilyName,
-                                    UserName = user.CustomUsername,
-                                    RoleNames = (from userRole in user.Roles
-                                                 join role
-                                                 in _dbContext.Roles
-                                                 on userRole.RoleId
-                                                 equals role.Id
-                                                 select role.Name).ToList()
-                                }).ToList().Select(p => new UsersInRoleViewModel()
-                                {
-                                    UserId = p.UserId,
-                                    Username = p.Username,
-                                    Email = p.Email,
-                                    Role = string.Join(",", p.RoleNames)
-                                });
-            return View(usersWithRoles);
-            /*List<ApplicationUser> applicationUsers = new List<ApplicationUser>();
-            var users=_userManager.Users.ToList();
+            var users = _userManager.Users.ToList();
+            var userRoles = _dbContext.UserRoles.ToList();
+            var roles = _roleManager.Roles.ToList();
+
+            List<UsersInRoleViewModel> accounts = new List<UsersInRoleViewModel>();
             foreach (var user in users)
             {
-                applicationUsers.Add(user);
+                var model = new UsersInRoleViewModel
+                {
+                    UserId = user.Id,
+                    FirstName = user.FirstName,
+                    FatherName = user.FatherName,
+                    FamilyName = user.FamilyName,
+                    Email = user.Email,
+                    Username=user.CustomUsername
+                };
+                foreach (var role in roles)
+                {
+                    foreach (var userRole in userRoles)
+                    {
+                        if (user.Id == userRole.UserId && role.Id == userRole.RoleId)
+                        {
+                            model.Role = role.Name;
+                        }
+                    }
+                }
+                accounts.Add(model);
             }
-            return View(applicationUsers);*/
-        }
 
-        public ActionResult Edit(int id) 
+            return View(accounts);
+        }
+        public IActionResult Create()
         {
-            
+            ViewData["RolesId"] = new SelectList(_dbContext.Roles, "Id", "Name");
             return View();
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateAccountViewModel model, string SelRole)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser
+                {
+                    CustomUsername=model.CustomUsername,
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    FatherName = model.FatherName,
+                    FamilyName = model.FamilyName,
+                    EmailConfirmed = true
+                };
+
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if (result.Succeeded)
+                {
+                    var role = await _roleManager.FindByIdAsync(SelRole);
+                    await _userManager.AddToRoleAsync(user, role.Name.ToString());
+
+                    return RedirectToAction("Index", "Home");
+                }
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, "Wrong email or password");
+                } 
+            }
+            ViewData["RolesId"] = new SelectList(_dbContext.Roles, "Id", "Name", SelRole);
+            return View();
+        }
+        public ActionResult Edit(int id) 
+        {
+            return View();
+        }
+
     }
 }

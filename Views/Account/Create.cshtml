@@ -1,58 +1,54 @@
-﻿@model NewsSite.Models.Account.RegisterViewModel
+﻿@model NewsSite.Models.Account.CreateAccountViewModel
 
-@{
-    ViewData["Title"] = "Registration";
-}
-<h1>Регистрирай се</h1>
-
-<form asp-action="Register" method="post">
+<h1>Създаване на профил</h1>
+<form asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="FirstName"></label>
+        <label asp-for="FirstName">Собствено име</label>
         <input asp-for="FirstName" class="form-control" />
         <span asp-validation-for="FirstName" class="form-danger"></span>
     </div>
-    <br/>
 
     <div class="form-group">
-        <label asp-for="FatherName"></label>
+        <label asp-for="FatherName">Бащино име</label>
         <input asp-for="FatherName" class="form-control" />
         <span asp-validation-for="FatherName" class="form-danger"></span>
     </div>
     <br/>
 
     <div class="form-group">
-        <label asp-for="FamilyName"></label>
+        <label asp-for="FamilyName">Фамилия</label>
         <input asp-for="FamilyName" class="form-control" />
         <span asp-validation-for="FamilyName" class="form-danger"></span>
     </div>
     <br />
 
     <div class="form-group">
-        <label asp-for="Email"></label>
+        <label asp-for="Email">Имейл</label>
         <input asp-for="Email" class="form-control" />
         <span asp-validation-for="Email" class="form-danger"></span>
     </div>
     <br/>
 
     <div class="form-group">
-        <label asp-for="CustomUsername"></label>
+        <label asp-for="CustomUsername">Псевдоним</label>
         <input asp-for="CustomUsername" class="form-control" />
         <span asp-validation-for="CustomUsername" class="form-danger"></span>
     </div>
     <br />
 
     <div class="form-group">
-        <label asp-for="Password"></label>
+        <label asp-for="Password">Парола</label>
         <input asp-for="Password" class="form-control" type="password"/>
         <span asp-validation-for="Password" class="form-danger"></span>
     </div>
     <br/>
 
     <div class="form-group">
-        <label asp-for="ConfirmPassword"></label>
-        <input asp-for="ConfirmPassword" class="form-control" type="password" />
-        <span asp-validation-for="ConfirmPassword" class="form-danger"></span>
+        <label for="SelRole">Роля</label>
+        <select name="SelRole" class="form-control" asp-items="ViewBag.RolesId">
+            <option value="">Please select a role</option>
+        </select>
     </div>
-    <br/>
-    <button type="submit" class="btn btn-primary">Register</button>
+    <br />
+    <button type="submit" class="btn btn-primary">Създай</button>
 </form>

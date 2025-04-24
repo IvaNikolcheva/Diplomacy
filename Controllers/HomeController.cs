@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NewsSite.Data;
 using NewsSite.Models;
@@ -16,27 +17,8 @@ namespace NewsSite.Controllers
             _context = context;
             _logger = logger;
         }
-        [HttpGet]
-        public IActionResult ChangeThemeRf()
-        {
-            var theme = Request.Cookies["UserPreference"] ?? "light";
-            ViewBag.Theme = theme;
-            return RedirectToAction("Index");
-        }
-        [HttpPost]
-        public IActionResult ChangeTheme(string theme)
-        {
-            Response.Cookies.Append("UserPreference", theme, new CookieOptions
-            {
-                Expires = DateTime.UtcNow.AddYears(1),
-                HttpOnly = true,
-                IsEssential = true
-            });
-            return RedirectToAction("ChangeThemeRf");
-        }
         public IActionResult Index(string chosenOne)
-        {
-            ViewBag.ChosenCategory = chosenOne;
+        { 
             var articles = _context.Articles.ToList();
             List<Article> chosenOnes = new List<Article>();
             if (chosenOne == null)

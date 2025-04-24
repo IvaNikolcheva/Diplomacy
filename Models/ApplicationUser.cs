@@ -12,7 +12,6 @@ namespace NewsSite.Models
         public string FatherName { get; set; }
         public string FamilyName { get; set; }
         public string CustomUsername { get; set; }
-        public string Roles { get; set; }
         public ICollection<Article> Articles { get; set; }
     }
 }
