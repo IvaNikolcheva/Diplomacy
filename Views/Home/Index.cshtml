@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<NewsSite.Models.Article>
-<head>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-</head>
+
 @{
     ViewData["Title"] = "Home Page";
     var theme = Context.Request.Cookies["UserPreference"] ?? "light";

@@ -33,7 +33,7 @@
                         @if (User.IsInRole("Worker") || User.IsInRole("Admin"))
                         {
                         <a asp-action="Edit" asp-route-id="@article.ArticleId">Редактирай</a>
-                        <form asp-action="Delete" asp-route-id="@article.ArticleId" method="post">
+                        <form asp-action="Delete" asp-route-id="@article.ArticleId">
                             <button type="submit" class="btn btn-danger">Изтрий</button>
                         </form>
                         }

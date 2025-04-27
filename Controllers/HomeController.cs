@@ -18,7 +18,7 @@ namespace NewsSite.Controllers
             _logger = logger;
         }
         public IActionResult Index(string chosenOne)
-        { 
+        {
             var articles = _context.Articles.ToList();
             List<Article> chosenOnes = new List<Article>();
             if (chosenOne == null)

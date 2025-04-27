@@ -3,8 +3,14 @@
 <h1>Сигурни ли сте, че искате да изтриете тази новина?</h1>
 
 <div>
+    <p>
+        Снимка:
+        @if (Model.ImageSrc != null)
+        {
+            <img src="@Model.ImageSrc" alt="Article Image" width="400" height="200" />
+        }
+    </p>
     <h5>Заглавие: @Model.Title</h5>
-    <p>Снимка: @Model.Image</p>
     <p>Съдържание: @Model.Content</p>
     <p>Дата на публикуване: @Model.PublishedDate</p>
     <p>Автор: @Model.User</p>

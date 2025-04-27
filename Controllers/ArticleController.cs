@@ -16,12 +16,10 @@ namespace NewsSite.Controllers
     {
         private readonly ApplicationDbContext _dbContext;
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly RoleManager<IdentityRole> _roleManager;
-        public ArticleController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
+        public ArticleController(ApplicationDbContext dbContext, UserManager<ApplicationUser> userManager)
         {
             _dbContext = dbContext;
             _userManager = userManager;
-            _roleManager = roleManager;
         }
         [Authorize(Roles = "Admin,Worker")]
         public async Task<IActionResult> Index()
@@ -99,11 +97,32 @@ namespace NewsSite.Controllers
         }
 
         [Authorize(Roles = "Admin,Worker")]
-        public ActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
-            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "CategoryId", "CategoryName");
-            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName");
-            return View();
+            var article = _dbContext.Articles.Include(b => b.User)
+                .Include(b => b.Category).FirstOrDefault(x => x.ArticleId == id);
+            if (article == null)
+            {
+                return NotFound(0);
+            }
+            var model = new EditArticleViewModel()
+            {
+                Title = article.Title,
+                UserId = article.UserId,
+                Content = article.Content,
+                CategoryId = article.CategoryId,
+            };
+            if (model.ImageFile != null)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    await model.ImageFile.CopyToAsync(ms);
+                    article.Image = ms.ToArray();
+                }
+            }
+            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "CategoryName", model.CategoryId);
+            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
+            return View(model);
         }
 
         [Authorize(Roles = "Admin,Worker")]
@@ -132,11 +151,11 @@ namespace NewsSite.Controllers
             {
                 Id = article.ArticleId,
                 Title = article.Title,
-                Content=article.Content,
                 Image=article.Image,
+                Content=article.Content,
                 PublishedDate=article.PublishedDate,
                 Category=article.Category.CategoryName,
-                User=article.User.FirstName + article.User.FamilyName
+                User=article.User.FirstName + " " + article.User.FamilyName
             };
             return View(model);
         }

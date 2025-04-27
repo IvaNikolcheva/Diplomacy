@@ -1,0 +1,36 @@
+﻿@model NewsSite.Models.Articles.EditArticleViewModel
+
+<h2>Редактиране на новина</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Title">Заглавие</label>
+        <input asp-for="Title" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Content">Съдържание</label>
+        <input asp-for="Content" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="UserId">Автор</label>
+        <select asp-for="UserId" asp-items="ViewBag.UserId" class="form-control">
+            <option value="">Моля изберете автор</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="CategoryId">Категория</label>
+        <select asp-for="CategoryId" asp-items="ViewBag.CategoryId" class="form-control">
+            <option value="">Моля изберете категория</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageFile" class="">Снимка на творбата</label>
+        <input asp-for="ImageFile" class="form-control" accept="image/*" type="file" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Запази</button>
+</form>
