@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<NewsSite.Models.Article>
 
-<h2>Новина</h2>
+<h2>Моите новини</h2>
 
 <a asp-action="Create" class="btn btn-primary">Добави новина</a>
 <div>
@@ -32,7 +32,9 @@
                     <td>
                         @if (User.IsInRole("Worker") || User.IsInRole("Admin"))
                         {
-                        <a asp-action="Edit" asp-route-id="@article.ArticleId">Редактирай</a>
+                            <form asp-action="Edit" asp-route-id="@article.ArticleId">
+                                <button type="submit" class="btn btn-secondary">Редактирай</button>
+                            </form>
                         <form asp-action="Delete" asp-route-id="@article.ArticleId">
                             <button type="submit" class="btn btn-danger">Изтрий</button>
                         </form>

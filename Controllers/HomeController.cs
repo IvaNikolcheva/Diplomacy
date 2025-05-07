@@ -20,6 +20,7 @@ namespace NewsSite.Controllers
         public IActionResult Index(string chosenOne)
         {
             var articles = _context.Articles.ToList();
+            articles.Reverse();
             List<Article> chosenOnes = new List<Article>();
             if (chosenOne == null)
             {

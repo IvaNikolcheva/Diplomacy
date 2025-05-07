@@ -33,11 +33,11 @@ namespace NewsSite.Controllers
                 .Include(b => b.Category)
                 .ToListAsync();
 
-            if (role.ToString() == "Admin")
+            if (role.Contains("Admin"))
             { 
                 return View(articles);
             }
-            else if(role.ToString() == "Worker")
+            else if(role.Contains("Worker"))
             {
                 foreach (var article in articles)
                 {
@@ -107,19 +107,14 @@ namespace NewsSite.Controllers
             }
             var model = new EditArticleViewModel()
             {
+                Id=article.ArticleId,
                 Title = article.Title,
                 UserId = article.UserId,
                 Content = article.Content,
                 CategoryId = article.CategoryId,
+                ExistingImage=article.Image,
+                PublishedDate=article.PublishedDate
             };
-            if (model.ImageFile != null)
-            {
-                using (var ms = new MemoryStream())
-                {
-                    await model.ImageFile.CopyToAsync(ms);
-                    article.Image = ms.ToArray();
-                }
-            }
             ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "CategoryName", model.CategoryId);
             ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
             return View(model);
@@ -128,16 +123,37 @@ namespace NewsSite.Controllers
         [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<IActionResult> Edit(int id, EditArticleViewModel model)
         {
-            try
+            if (id != model.Id)
             {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                var article = _dbContext.Articles.Find(id);
+
+                article.Title = model.Title;
+                article.Content = model.Content;
+                article.UserId = model.UserId;
+                article.CategoryId = model.CategoryId;
+                article.PublishedDate = model.PublishedDate;
+
+                if (model.ImageFile != null)
+                {
+                    using (var ms = new MemoryStream())
+                    {
+                        await model.ImageFile.CopyToAsync(ms);
+                        article.Image = ms.ToArray();
+                    }
+                }
+
+                _dbContext.Articles.Update(article);
+                await _dbContext.SaveChangesAsync();
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
-            {
-                return View();
-            }
+            return View(model);
         }
         [Authorize(Roles = "Admin,Worker")]
         public ActionResult Delete(int id)
