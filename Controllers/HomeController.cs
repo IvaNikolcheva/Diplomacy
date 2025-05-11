@@ -1,3 +1,4 @@
+using Humanizer.Localisation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -17,56 +18,25 @@ namespace NewsSite.Controllers
             _context = context;
             _logger = logger;
         }
-        public IActionResult Index(string chosenOne)
+        public async Task<IActionResult> Index( string searchString)
         {
-            var articles = _context.Articles.ToList();
-            articles.Reverse();
-            List<Article> chosenOnes = new List<Article>();
-            if (chosenOne == null)
+            if (_context.Articles == null)
             {
-                return View(articles);
+                return Problem("Entity set 'ApplicationDbContext.Article' is null.");
             }
-            if (chosenOne != null)
-            {
-                foreach (var article in articles)
-                {
-                    switch (chosenOne)
-                    {
-                        case "Bulgaria":
-                            {
-                                chosenOnes.Add(article);
-                            }
-                            break;
-                        case "World":
-                            {
-                                chosenOnes.Add(article);
-                            }
-                            break;
-                        case "Politics":
-                            {
-                                chosenOnes.Add(article);
-                            }
-                            break;
-                        case "Economy":
-                            {
-                                chosenOnes.Add(article);
-                            }
-                            break;
-                        case "Sports":
-                            {
-                                chosenOnes.Add(article);
-                            }
-                            break;
-                        default:
-                            {
-                                return View(articles);
-                            }
-                    }
-                }
-            }
-            return View(chosenOnes);
-        }
 
+            var articles = from m in _context.Articles.Include(m => m.Category).AsQueryable()
+                           select m;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                articles = articles.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
+            }
+
+            await articles.ToListAsync();
+            articles.Reverse();
+            return View(articles);
+        }
         public IActionResult Privacy()
         {
             return View();

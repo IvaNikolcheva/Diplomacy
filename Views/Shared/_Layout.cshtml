@@ -28,11 +28,11 @@
                         <li class="dropdown nav-item">
                             <span class="align-content-center nav-link">Категории</span>
                             <div class="dropdown-content">
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenOne" value="Bulgaria">България</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenOne" value="World">Светът</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenOne" value="Politics">Политика</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenOne" value="Economy">Икономика</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenOne" value="Sports">Спорт</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategpry" value="Bulgaria">България</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="World">Светът</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="Politics">Политика</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="Economy">Икономика</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="Sports">Спорт</a>
                             </div>
                         </li>
                             @if (User.IsInRole("Admin" ) || User.IsInRole("Worker"))

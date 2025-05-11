@@ -32,7 +32,7 @@
                     <td>
                         @if (User.IsInRole("Worker") || User.IsInRole("Admin"))
                         {
-                            <form asp-action="Edit" asp-route-id="@article.ArticleId">
+                            <form asp-action="Edit" method="get" asp-route-id="@article.ArticleId">
                                 <button type="submit" class="btn btn-secondary">Редактирай</button>
                             </form>
                         <form asp-action="Delete" asp-route-id="@article.ArticleId">

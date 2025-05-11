@@ -97,6 +97,7 @@ namespace NewsSite.Controllers
         }
 
         [Authorize(Roles = "Admin,Worker")]
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var article = _dbContext.Articles.Include(b => b.User)
@@ -107,16 +108,16 @@ namespace NewsSite.Controllers
             }
             var model = new EditArticleViewModel()
             {
-                Id=article.ArticleId,
+                Id = article.ArticleId,
                 Title = article.Title,
                 UserId = article.UserId,
                 Content = article.Content,
                 CategoryId = article.CategoryId,
-                ExistingImage=article.Image,
-                PublishedDate=article.PublishedDate
+                ExistingImage = article.Image,
+                PublishedDate = article.PublishedDate
             };
-            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "CategoryName", model.CategoryId);
-            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
+            ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "CategoryId", "CategoryName");
+            ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName");
             return View(model);
         }
 
@@ -151,6 +152,8 @@ namespace NewsSite.Controllers
                 _dbContext.Articles.Update(article);
                 await _dbContext.SaveChangesAsync();
 
+                ViewData["CategoryId"] = new SelectList(_dbContext.Categories, "Id", "CategoryName", model.CategoryId);
+                ViewData["UserId"] = new SelectList(_userManager.Users, "Id", "UserName", model.UserId);
                 return RedirectToAction(nameof(Index));
             }
             return View(model);
