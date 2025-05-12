@@ -18,7 +18,7 @@ namespace NewsSite.Controllers
             _context = context;
             _logger = logger;
         }
-        public async Task<IActionResult> Index( string searchString)
+        public async Task<IActionResult> Index( string searchString, string searchValue)
         {
             if (_context.Articles == null)
             {
@@ -31,6 +31,10 @@ namespace NewsSite.Controllers
             if (!String.IsNullOrEmpty(searchString))
             {
                 articles = articles.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
+            }
+            if (!String.IsNullOrEmpty(searchValue))
+            {
+                articles = articles.Where(s => s.Category.CategoryName!.ToUpper().Contains(searchValue.ToUpper()));
             }
 
             await articles.ToListAsync();

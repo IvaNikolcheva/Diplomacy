@@ -1,4 +1,5 @@
 ﻿<!DOCTYPE html>
+@inject IEnumerable<NewsSite.Models.Category> categories
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -6,7 +7,7 @@
     <title>@ViewData["Title"] - NewsSite</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/NewsSite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/NewsSite.styles.css" asp-append-version="true"/>
 </head>
 <body>
     <header>
@@ -28,11 +29,12 @@
                         <li class="dropdown nav-item">
                             <span class="align-content-center nav-link">Категории</span>
                             <div class="dropdown-content">
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategpry" value="Bulgaria">България</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="World">Светът</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="Politics">Политика</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="Economy">Икономика</a>
-                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" name="chosenCategory" value="Sports">Спорт</a>
+                                @foreach (var category in categories)
+                                {
+                                <a asp-action="Index" asp-route-searchActive="@ViewBag.SearchValue" asp-route-filterActive="Categories" asp-route-selectedFilter="@category.CategoryId">
+                                    @category.CategoryName
+                                </a>
+                                }
                             </div>
                         </li>
                             @if (User.IsInRole("Admin" ) || User.IsInRole("Worker"))

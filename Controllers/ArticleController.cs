@@ -98,7 +98,7 @@ namespace NewsSite.Controllers
 
         [Authorize(Roles = "Admin,Worker")]
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public ActionResult Edit(int id)
         {
             var article = _dbContext.Articles.Include(b => b.User)
                 .Include(b => b.Category).FirstOrDefault(x => x.ArticleId == id);
