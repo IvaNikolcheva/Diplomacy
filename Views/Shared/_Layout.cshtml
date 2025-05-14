@@ -29,12 +29,11 @@
                         <li class="dropdown nav-item">
                             <span class="align-content-center nav-link">Категории</span>
                             <div class="dropdown-content">
-                                @foreach (var category in categories)
-                                {
-                                <a asp-action="Index" asp-route-searchActive="@ViewBag.SearchValue" asp-route-filterActive="Categories" asp-route-selectedFilter="@category.CategoryId">
-                                    @category.CategoryName
-                                </a>
-                                }
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" method="get" name="SearchValue" value="България">България</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" method="get" name="SearchValue" value="Светът">Светът</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" method="get" name="SearchValue" value="Политика">Политика</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" method="get" name="SearchValue" value="Икономика">Икономика</a>
+                                <a class="nav-link text-dark" asp-controller="Home" asp-action="Index" method="get" name="SearchValue" value="Спорт">Спорт</a>
                             </div>
                         </li>
                             @if (User.IsInRole("Admin" ) || User.IsInRole("Worker"))
