@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using NewsSite.Data;
 using NewsSite.Models;
 using NewsSite.Models.Account;
+using NewsSite.Models.Articles;
 
 namespace NewsSite.Controllers
 {
@@ -161,9 +162,23 @@ namespace NewsSite.Controllers
             ViewData["RolesId"] = new SelectList(_dbContext.Roles, "Id", "Name", SelRole);
             return View();
         }
-        public ActionResult Edit(int id) 
+        public ActionResult Edit(string id) 
         {
-            return View();
+            var user = _dbContext.Users.FirstOrDefault(x => x.Id == id);
+            if (user == null)
+            {
+                return NotFound(0);
+            }
+            var model = new EditAccountViewModel()
+            {
+                FirstName = user.FirstName,
+                FatherName = user.FatherName,
+                FamilyName = user.FamilyName,
+                CustomUsername = user.CustomUsername,
+                Email = user.Email,
+            };
+            ViewData["RolesId"] = new SelectList(_dbContext.Roles, "Id", "Name");
+            return View(model);
         }
 
     }

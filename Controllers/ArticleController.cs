@@ -66,7 +66,7 @@ namespace NewsSite.Controllers
         [Authorize(Roles = "Admin,Worker")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CreateArticleViewModel model)
+        public async Task<IActionResult> Create([Bind("Id,Title,UserId,Content,CategoryId,PublishedDate,ImageFile")]CreateArticleViewModel model)
         {
             if (ModelState.IsValid)
             {
