@@ -36,9 +36,10 @@ namespace NewsSite.Controllers
             {
                 articles = articles.Where(s => s.Category.CategoryName!.ToUpper().Contains(searchValue.ToUpper()));
             }
-            
+
             await articles.ToListAsync();
-            articles.Reverse();
+            articles.Order();
+
             return View(articles);
         }
         public IActionResult Privacy()
